@@ -1,0 +1,106 @@
+<?php
+	// This class is for the Registration in the data base 
+	$email=$_GET['email'];
+	$first_name=$_GET['first_name'];
+	$last_name=$_GET['last_name'];
+	$password=$_GET['password'];
+	$familyStatus=$_GET['familyStatusDropdownMenu'];
+	$ResidentialArea=$_GET['ResidentialAreadropdownMenu'];
+	$Child=$_GET['ChildDropdownMenu'];
+	$Smoking=$_GET['Smoking'];
+	$aboutMe=$_GET['aboutMe'];
+	$aboutyou=$_GET['aboutYou'];
+	$birthDay=$_GET['birthDay'];
+	$diet=$_GET['diet'];
+	$height=$_GET['height'];
+	$herFamilyStatus=$_GET['herFamilyStatusDropdownMenu'];
+	$herEducation=$_GET['herEducationDropdownMenu'];
+	$herResidentialArea=$_GET['herResidentialAreadropdownMenu'];
+	$herChild=$_GET['herChildDropdownMenu'];
+	$herSmoking=$_GET['herSmoking'];
+	$gender=checkGender($_GET['gender']);
+	$education=$_GET['EducationDropdownMenu'];
+	$minAge=$_GET['minAge'];
+	$maxAge=$_GET['maxAge'];
+	$file=$_FILE[];
+
+
+	
+
+
+
+	
+
+	
+	//print_r($_REQUEST);
+	include 'include/connect.php';
+
+	$validate = ((mysql_query("SELECT * FROM users WHERE `email`='".$email."'")));
+	if(mysql_num_rows($validate)!=0)
+	{
+		//echo "<h1>User is Already subscribed..</h1>";
+		echo "0";
+		die();
+	}
+	else
+	{
+		$userid = implode(mysql_fetch_assoc(mysql_query("SELECT MAX(id) FROM users")));
+		$userid+=1;
+		echo '90';
+		if(isset($_FILES["file"]))  
+		{
+		    $validextensions = array("jpeg", "jpg", "png");
+		    $temporary = explode(".", $_FILES["file"]["name"]); 
+		    $file_extension = end($temporary);
+echo '92';
+		    if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")
+		            ) && ($_FILES["file"]["size"] < 100000000)//Approx. 100kb files can be uploaded.
+		            && in_array($file_extension, $validextensions)) 
+			{
+				echo '93';
+
+		        if ($_FILES["file"]["error"] > 0)
+				{
+		            echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
+		        } 
+				else 
+				{
+				echo '94';				
+					$sourcePath = $_FILES['file']['tmp_name'];   // Storing source path of the file in a variable
+					$targetPath = "profiles_imges/".$_FILES['file']['name'];  // Target path where file is to be stored
+					move_uploaded_file($sourcePath,$targetPath) ; //  Moving Uploaded file						
+					rename($targetPath, 'profiles_imges/'.$userid.'.'.$file_extension);
+					/*
+					echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
+					echo "<br/><b>File Name:</b> " . $_FILES["file"]["name"] . "<br>";
+					echo "<b>Type:</b> " . $_FILES["file"]["type"] . "<br>";
+					echo "<b>Size:</b> " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+					echo "<b>Temp file:</b> " . $_FILES["file"]["tmp_name"] . "<br>";
+					*/
+					echo '95';
+		        }        
+		    }   
+			else 
+			{
+		        echo "<span id='invalid'>***Invalid file Size or Type***<span>";
+		    }
+		}
+		echo '96';
+		/////mysql_query("INSERT INTO users (`fName`,`lName`,`gender`,`phone`,`address`,`email`,`password`)  VALUES('chen','bel',true,'0547373','b7 asdasd asdsa','chen@bel.com','1234'); ");
+		mysql_query("INSERT INTO users(`user_id`,`email`, `password`, `first_name`, `last_name` , `family_status` , `residential_area` , `childrens` , `smoking` , `about_me` , `about_you` , `birth_day` , `her_family_status` , `her_education` , `her_residential_area` , `her_child` , `her_smoking` , `gender` , `education` , `min_age` , `max_age` , `diet` , `height`) 
+					VALUES ('".$userid."' , '".$email."', '".$password."' ,  '".$first_name."' , '".$last_name."' , '".$familyStatus."' , '".$ResidentialArea."' , '".$Child."' ,  '".$Smoking."' , '".$aboutMe."' , '".$aboutyou."' , '".$birthDay."' , '".$herFamilyStatus."' , '".$herEducation."' , '".$herResidentialArea."' , '".$herChild."' , '".$herSmoking."' , '".$gender."' , '".$education."' , '".$minAge."' , '".$maxAge."' , '".$diet."' , '".$height."')");
+		//echo "<h1> User Subscribed Successfully ! </h1>";
+		echo "1";
+	}
+
+	function checkGender($gender){
+		if($gender=='male'){
+			$gender='1';
+		}
+		else{
+			$gender='0';
+		}
+		return $gender;
+	}
+	
+?>

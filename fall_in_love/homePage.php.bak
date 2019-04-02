@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="include/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!--inclide the CSS file for the login form-->
+    <link href="bootstrap-3/css/homnePage.css" rel="stylesheet">
+  </head>
+  <body>
+    <?php
+		
+		include 'functions/session_functions.php';
+        $userName=null;
+        $sign=null;
+        $flag=false;
+        $signLink=null;
+		startSession();
+        if(isset($_SESSION['first_name']) && $_SESSION['first_name'] != ''){
+            $userName=$_SESSION['first_name'];
+            $sign = 'Out';
+            $flag=true;
+        }
+        else{
+            $userName='Guest';
+            $sign='In';
+            $signLink='signIn.php';
+        }
+    ?>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Add the logo for the web site -->
+            <a class="navbar-brand" href="/"><img src="images/logo.png" alt="Your Logo"></a>
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="homePage.php">Home</a>
+                </li>
+                <li><a href="Registration.php">Registration</a></li>
+            </ul> 
+            <form class="navbar-form pull-left">
+                <input type="text" class="form-control" placeholder="Search this site..." id="searchInput">
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </form><!-- end navbar-form -->   
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <?php echo $userName; ?> Account <strong class="caret"></strong></a>
+                    
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" disabled="disabled"><span class="glyphicon glyphicon-wrench"></span> Settings</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-refresh"></span> Update Profile</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-briefcase"></span> Billing</a>
+                        </li>
+                        
+                        <li class="divider"></li>
+                        
+                        <li>
+                            <a href=<?php echo $signLink; ?> ><span class="glyphicon glyphicon-off"></span> Sign <?php echo $sign; ?>    </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- end nav pull-right -->
+            
+        </div><!--  End container  -->
+    </nav> <!-- End navbar -->
+    <script src="js/jquery.min.js"></script>    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3/js/homePage.js"></script>
+    <script src="bootbox.min.js" ></script>
+
+    <!--This is for the homePage java script-->
+    <script >
+        
+    </script>
+  </body>
+</html>

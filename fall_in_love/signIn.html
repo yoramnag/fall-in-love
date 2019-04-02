@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign In</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3/css/bootstrap.min.css" rel="stylesheet">
+    <!--inclide the CSS file for the login form-->
+    <link href="bootstrap-3/css/signIn.css" rel="stylesheet">
+
+  </head>
+  <body>
+	<div class="container">
+		<div class="row" style="margin-top:20px">
+		    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<form role="form" action="checkUser.php" method="POST">
+					<fieldset>
+						<h2>Please Sign In</h2>
+						<hr class="colorgraph">
+						<div class="form-group">
+		                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" >
+						</div>
+						<div class="form-group">
+		                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" >
+						</div>
+						<span class="button-checkbox">
+							<button type="button" class="btn" data-color="info">Remember Me</button>
+		                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+							<a href="" class="btn btn-link pull-right">Forgot Password?</a>
+						</span>
+						<hr class="colorgraph">
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+		                        <input type="button" class="btn btn-lg btn-success btn-block" value="Sign In" id="sign_in">
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a href="Registration.php" class="btn btn-lg btn-primary btn-block">Register</a>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3/js/signIn.js"></script>
+    <script src="bootbox.min.js" ></script>
+    <script>
+    	var allGood=null;
+		var email=null;
+	 	var password=null;
+	 	$('#sign_in').click(function() {
+	 		allGood=true;
+	 		email=$('#email').val();
+	 		//console.log(email);
+	 		password=$('#password').val();
+	 		//console.log(password);
+	 		if (email=="") {
+		 		bootbox.alert("Please enter your email ", function() {
+				});
+				allGood=false;
+		 	}else if (password=="") {
+		 		bootbox.alert("Please enter your password", function() {
+				});
+				allGood=false;
+		 	}
+		 	if(allGood==false)
+				return;
+			console.log("Send data to server side");
+			$.ajax({
+		 			url: 'checkUser.php',
+					type: 'GET',
+					data: {
+						email:email,
+						password:password,
+					},	
+					
+					success:function (data) {
+					
+					if(parseInt(data)==1){
+						bootbox.alert("You login successfly to fall in love ", function() {
+							window.location.href = 'homePage.php';
+						});
+						
+					}
+					else{
+						bootbox.alert("Email or password are in incorrect", function() {
+						});
+					}
+				 }
+	 		});
+	 	});
+	 	
+
+
+    </script>
+
+  </body>
+</html>

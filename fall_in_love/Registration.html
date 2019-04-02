@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3/css/bootstrap.min.css" rel="stylesheet">
+    <!--inclide the CSS file for the login form-->
+    <link href="bootstrap-3/css/Registration.css" rel="stylesheet">
+    <link href="bootstrap-3/css/file.css" rel="stylesheet">
+  </head>
+  <body>
+		<div class="container">
+			<div class="row">
+			    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+					<form role="form" action="registraterUser.php" method="POST" >
+						
+						<h2>Please Sign Up <small>It's free and always will be.</small></h2>
+						<hr class="colorgraph">
+						<div id="form1">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div class="form-group">
+			                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1" >
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div class="form-group">
+									<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2" >
+								</div>
+							</div>
+						</div>
+						<!--
+						<div class="form-group">
+							<input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Display Name" tabindex="3" >
+						</div>
+						-->
+						<div class="form-group">
+							<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+						</div>
+						<div class="form-group">
+							Chose GENDER :
+							<input type="radio" name="gender" value="male" checked="yes"/>  <label for = "male "> male </label>
+							<input type="radio" name="gender" value="female"   />  <label for = "female "> female </label>
+						</div>
+						<div class="row form1">
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div class="form-group">
+									<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<div class="form-group">
+									<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6" >
+								</div>
+							</div>
+							<!--family status dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Chose Family Status :
+							    <select class="form-control" name="familyStatusDropdownMenu" id="familyStatusDropdownMenu">
+							    	<option></option>
+									<option value = "bachelor"> bachelor </option>
+									<option value = "divorced"> divorced </option>
+									<option value = "widower"> widower </option>
+									<option value = "separated"> separated </option>
+								</select>
+							</div>
+							<!--Education dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Chose Education :
+								<select class="form-control" name="EducationDropdownMenu" id="EducationDropdownMenu">
+									<option></option>
+									<option value = "high school education"> high school education </option>
+									<option value = "higher education"> higher education </option>
+									<option value = "bachelor's degree"> bachelor's degree </option>
+									<option value = "master's degree"> master's degree </option>
+									<option value = "doctorate"> doctorate </option>
+								</select>
+							</div>
+							<!--put space between the forms-->
+							<div><label class="col-sm-12"></label></div>
+							<!--Residential area dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Chose Residential Area :
+								<select class="form-control" name="ResidentialAreadropdownMenu" id="ResidentialAreadropdownMenu">
+									<option></option>
+									<option value = "Dan"> Dan </option>
+									<option value = "HaSharon"> HaSharon </option>
+									<option value = "Haifa area"> Haifa area </option>
+									<option value = "Jerusalem Area"> Jerusalem Area </option>
+									<option value = "Southern of Israel"> Southern of Israel </option>
+									<option value = "North of Israel"> North of Israel </option>
+								</select>
+							</div>
+							<!--Childrens dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							How Many Childrens Do You Have ?
+								<select class="form-control" name="ChildDropdownMenu" id="ChildDropdownMenu">
+									<option></option>
+									<option value = "0"> 0 </option>
+									<option value = "1"> 1 </option>
+									<option value = "2"> 2</option>
+									<option value = "3"> 3 </option>
+									<option value = "4 or more"> 4 or more </option>
+								</select>
+							</div>
+							<!--Smoking drop dowm mamu-->
+							<div><label class="col-sm-12"></label></div>
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Smoking :
+								<select class="form-control" name="Smoking" id="Smoking">
+									<option></option>
+									<option value = "Smoking"> Smoking  </option>
+									<option value = "Not Smoking"> Not Smoking  </option>
+								</select>
+							</div>
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Birth Day :
+								<div class="form-group">
+									<input type="date" name="birthDay" id="birthDay" class="form-control input-lg" tabindex="6" >
+								</div>
+							</div>
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Diet :
+								<select class="form-control" name="diet" id="diet">
+									<option></option>
+									<option value = "Anything"> Anything </option>
+									<option value = "Vegetarian"> Vegetarian </option>
+									<option value = "Vegan"> Vegan </option>
+									<option value = "Khoser"> Khoser </option>
+									<option value = "Halal"> Halal </option>
+									<option value = "Other"> Other </option>
+								</select>
+							</div>
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Height :
+								<select class="form-control" name="height" id="height">
+									<option></option>
+									<option value = "Less then 140 centimeter"> Less then 140 centimeter </option>
+									<?php
+										for($i=140;$i<=220;$i++){
+											echo('<option value="' . $i . '">' . $i . '</option>');
+										}
+									?>
+									<option value = "More then 220 centimeter"> More then 220 centimeter </option>
+								</select>
+							</div>
+							<!--put space between the forms-->
+							<div><label class="col-sm-12"></label></div>
+							<div><label class="col-sm-12"></label></div>
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							UPLOAD PICTURE :
+								<form enctype="multipart/form-data" action="Registration.php" method="POST">
+							        <div class="container">
+							            <div class="row">    
+							                <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">  
+							                    <!-- image-preview-filename input [CUT FROM HERE]-->
+							                    <div class="input-group image-preview">
+							                        <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+							                        <span class="input-group-btn">
+							                            <!-- image-preview-clear button -->
+							                            <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+							                                <span class="glyphicon glyphicon-remove"></span> Clear
+							                            </button>
+							                            <!-- image-preview-input -->
+							                            <div class="btn btn-default image-preview-input">
+							                                <span class="glyphicon glyphicon-folder-open"></span>
+							                                <span class="image-preview-input-title">Browse</span>
+							                                <input type="file" accept="image/png, image/jpeg, image/gif" name="file" id="file"/> <!-- rename it -->
+							                            </div>
+							                        </span>
+							                    </div><!-- /input-group image-preview [TO HERE]--> 
+							                </div>
+							            </div>
+							        </div>
+					
+							    </form>
+							</div>
+						</div>
+						<!--put space between the forms-->
+						<div><label class="col-sm-12"></label></div>
+						<div><label class="col-sm-12"></label></div>
+						</div>
+						<!--FROM 2-->
+
+						<div class="row" id="form2">
+							<!--aboutMe-->
+							<legend>ABOUT ME AND YOU </legend><br/>
+							<div class="form-group">
+								<textarea class="form-control" rows="4" name="aboutMe" id="aboutMe" maxlength="250" placeholder="Tell us about yourself ( you can type a maximum of 250 characters )"  ></textarea>
+							</div>
+							<!--aboutYou-->
+							<div class="form-group">
+								<textarea class="form-control" rows="4" name="aboutYou" id="aboutYou" maxlength="250" placeholder="Tell us about the one you are looking for ( you can type a maximum of 250 characters )"  ></textarea>
+							</div>
+							<!--family status dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Chose her family Status :
+							    <select class="form-control" name="herFamilyStatusDropdownMenu" id="herFamilyStatusDropdownMenu">
+							    	<option></option>
+									<option value = "bachelor"> bachelor </option>
+									<option value = "divorced"> divorced </option>
+									<option value = "widower"> widower </option>
+									<option value = "separated"> separated </option>
+								</select>
+							</div>
+							<!--Education dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Chose her Education :
+								<select class="form-control" name="herEducationDropdownMenu" id="herEducationDropdownMenu">
+									<option></option>
+									<option value = "high school education"> high school education </option>
+									<option value = "higher education"> higher education </option>
+									<option value = "bachelor's degree"> bachelor's degree </option>
+									<option value = "master's degree"> master's degree </option>
+									<option value = "doctorate"> doctorate </option>
+								</select>
+							</div>
+							<!--put space between the forms-->
+							<div><label class="col-sm-12"></label></div>
+							<!--Residential area dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Chose her Residential Area :
+								<select class="form-control" name="herResidentialAreadropdownMenu" id="herResidentialAreadropdownMenu">
+									<option></option>
+									<option value = "Dan"> Dan </option>
+									<option value = "HaSharon"> HaSharon </option>
+									<option value = "Haifa area"> Haifa area </option>
+									<option value = "Jerusalem Area"> Jerusalem Area </option>
+									<option value = "Southern of Israel"> Southern of Israel </option>
+									<option value = "North of Israel"> North of Israel </option>
+								</select>
+							</div>
+							<!--Childrens dropdown menu-->
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							How Many Childrens dose she need to have ?
+								<select class="form-control" name="herChildDropdownMenu" id="herChildDropdownMenu">
+									<option></option>
+									<option value = "0"> 0 </option>
+									<option value = "1"> 1 </option>
+									<option value = "2"> 2</option>
+									<option value = "3"> 3 </option>
+									<option value = "4 or more"> 4 or more </option>
+								</select>
+							</div>
+							<!--Smoking drop dowm mamu-->
+							<div><label class="col-sm-12"></label></div>
+							<div class="dropdown col-xs-12 col-sm-6 col-md-6">
+							Smoking :
+								<select class="form-control" name="herSmoking" id="herSmoking">
+									<option></option>
+									<option value = "Smoking"> Smoking  </option>
+									<option value = "Not Smoking"> Not Smoking  </option>
+								</select>
+							</div>
+							<div class="dropdown col-xs-12 col-sm-3 col-md-3">
+							From Age :
+								<select class="form-control" name="minAge" id="minAge">
+									<option></option>
+									<?php
+										for($i=18;$i<=120;$i++){
+											echo('<option value="' . $i . '">' . $i . '</option>');
+										}
+									?>
+								</select>
+							</div>
+							<div class="dropdown col-xs-12 col-sm-3 col-md-3">
+							To Age :
+								<select class="form-control" name="maxAge" id="maxAge">
+									<option></option>
+									<?php
+										for($i=18;$i<=120;$i++){
+											echo('<option value="' . $i . '">' . $i . '</option>');
+										}
+									?>
+								</select>
+							</div>
+						</div>
+
+
+
+
+						<!--put space between the forms-->
+						<div><label class="col-sm-12"></label></div>
+						<div><label class="col-sm-12"></label></div>
+
+
+
+
+						<!---->
+						<div><label class="col-sm-12"></label></div>
+						<div class="row">
+							<div class="col-xs-4 col-sm-3 col-md-3">
+								<span class="button-checkbox">
+									<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+			                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+								</span>
+							</div>
+							<div class="col-xs-8 col-sm-9 col-md-9">
+								 By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+							</div>
+						</div>
+						
+						<hr class="colorgraph">
+						<div class="row">
+							<div class="col-xs-12 col-md-6"><input type="button" value="BACK" class="btn btn-primary btn-block btn-lg" tabindex="7" id="prevBotton" name="prevBotton" ></div>
+							<div class="col-xs-12 col-md-6"><input type="button" value="NEXT" class="btn btn-primary btn-block btn-lg" tabindex="7" id="nextBotton" name="nextBotton"></div>
+						</div>
+						<div class="row" style="margin-top:5px;">
+							<div class="col-xs-12 col-md-6"><input type="button" value="REGISTER" class="btn btn-success btn-block btn-lg" tabindex="7" id="regButton" name="regButton" ></div>
+							<div class="col-xs-12 col-md-6"><a href="signIn.php" class="btn btn-warning btn-block btn-lg">Sign In</a></div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- Modal -->
+			<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+						</div>
+						<div class="modal-body">
+							<p>
+								Falloing in love is a dating web site that was built so you can find love , the registration for this web site is free . 
+							</p>
+							<p>
+								by registration to this website you agree that all information that you submit is correct . 
+							</p>
+							<p>
+								so good luck .
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+	<script src="js/jquery.min.js"></script>	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3/js/Registration.js"></script>
+    <script src="bootstrap-3/js/file.js"></script>
+    <script src="bootbox.min.js" ></script>
+
+    <!--This is for the Registration java script-->
+    <script >
+    	$("#form2").hide();
+		$('#regButton').prop('disabled', true);
+		$('#prevBotton').prop('disabled', true); 
+			// declare them as global vars
+			var allGood=null;
+			var first_name=null;
+		 	var last_name=null;
+		 	var display_name=null;
+		 	var email=null;
+		 	var gender=null;
+		 	var password=null;
+		 	var password_confirmation=null;
+			var familyStatusDropdownMenu=null;
+			var EducationDropdownMenu=null;
+			var ResidentialAreadropdownMenu=null;
+			var ChildDropdownMenu=null;
+			var Smoking=null;
+			var birthDay = null;
+			console.log(birthDay);
+			var diet=null;
+			var height=null;
+		 $('#nextBotton').click(function() {
+			allGood=true;
+		 	// get the data from the textbox
+		 	 first_name=$('#first_name').val();
+		 	 last_name=$('#last_name').val();
+		 	 display_name=$('#display_name').val();
+		 	 email=$('#email').val();
+		 	 gender= $("input:radio[name='gender']:checked").val();
+		 	 //console.log(gender);
+		 	 password=$('#password').val();
+		 	 password_confirmation=$('#password_confirmation').val();
+		 	 familyStatusDropdownMenu=$('#familyStatusDropdownMenu').val();
+		 	 EducationDropdownMenu=$('#EducationDropdownMenu').val();
+		 	 ResidentialAreadropdownMenu=$('#ResidentialAreadropdownMenu').val();
+		 	 ChildDropdownMenu=$('#ChildDropdownMenu').val();
+		 	 Smoking=$('#Smoking').val();
+		 	 birthDay=$('#birthDay').val();
+		 	 diet=$('#diet').val();
+		 	 height=$('#height').val();
+		 	 //console.log(familyStatusDropdownMenu);
+		 	 //console.log(EducationDropdownMenu);
+		 	 //console.log(ResidentialAreadropdownMenu);
+		 	 //console.log(ChildDropdownMenu);
+		 	 console.log(birthDay);
+		 	 console.log(diet);
+		 	 console.log(height);
+		 	 // uploading imege 
+		 	 var form = document.querySelector('form');
+		 	 console.log(form);
+		 	 var request = new XMLHttpRequest();
+		 	 console.log(request);
+		 	 request.upload.addEventListener('load' , function(e) {
+		 	 	console.log("loaded and completed")
+		 	 }, false);
+		 	 console.log(request);
+		 	 form.addEventListener('submit' , function(e){
+		 	 	e.preventDefult();
+		 	 	var fromData = new fromData(form);
+		 	 	request.open('post' , 'test.php' ,true);
+		 	 	request.send(fromData);
+		 	 	console.log(request);
+		 	 })
+		 	
+		 	// validate the data from the text box 
+		 	if(first_name==""){
+		 		bootbox.alert("Please enter your first nane", function() {
+				});
+		 		//alert("Please Enter Your first nane");
+				allGood=false;
+		 	}
+		 	else if(last_name==""){
+		 		bootbox.alert("Please enter your last nane", function() {
+				});
+		 		//alert("Please Enter Your Last Nane");
+				allGood=false;
+		 	}
+		 	else if(display_name==""){
+		 		bootbox.alert("Please Enter Display Name", function() {
+				});
+		 		//alert("Please Enter Display Name");
+				allGood=false;
+		 	}
+		 	else if(email==""){
+		 		bootbox.alert("Please Enter Your Email", function() {
+				});
+		 		//alert("Please Enter Your email");
+				allGood=false;
+		 	}
+		 	// TODO ask Ofir 
+		 	else if(gender=="undefind"){
+		 		bootbox.alert("Please select your gender", function() {
+				});
+		 		//alert("Please Enter Your email");
+				allGood=false;
+		 	}
+		 	else if(password=="" || password_confirmation==""){
+		 		bootbox.alert("Please enter password", function() {
+				});
+		 		//alert("Please Enter Password");
+				allGood=false;
+		 	}
+		 	else if (password!=password_confirmation){
+		 		bootbox.alert("The passwords do NOT match", function() {
+				});
+		 		//alert("The passwords do NOT match");
+				allGood=false;
+		 	}
+		 	else if (familyStatusDropdownMenu == ""){
+		 		bootbox.alert("Please select family status", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (EducationDropdownMenu == ""){
+		 		bootbox.alert("Please select Education", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (ResidentialAreadropdownMenu == ""){
+		 		bootbox.alert("Please select Residential Area", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (ChildDropdownMenu == ""){
+		 		bootbox.alert("Please Chose how many Childrens do you have ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (Smoking == ""){
+		 		bootbox.alert("Please chose if you are smoking ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (birthDay == ""){
+		 		bootbox.alert("Please chose date of birth ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (diet == ""){
+		 		bootbox.alert("Please chose your diet ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (height == ""){
+		 		bootbox.alert("Please chose your height ", function() {
+				});
+				allGood=false;
+		 	}
+			else{
+				console.log("Done checking.");
+			}
+		 	if(allGood==false)
+				return;
+		 	
+
+
+		 	
+			// after validation form 1
+			// show the next form 
+			toggleForms(1,2,"nextBotton","prevBotton"); 
+			$('#regButton').prop('disabled', false);
+			 return false;
+		 });
+		 $("#prevBotton").click(function(){
+			toggleForms(2,1,"prevBotton","nextBotton");
+			$('#regButton').prop('disabled', true);
+		 });
+		 
+		 $("#regButton").click(function(){
+		 	var allGood=true;
+			 // Start validata form 2 
+			 
+			 aboutMe = $('textarea#aboutMe').val();
+			 console.log(aboutMe);
+			 aboutYou = $('textarea#aboutYou').val();
+			 console.log(aboutYou);
+			 herFamilyStatusDropdownMenu=$('#herFamilyStatusDropdownMenu').val();
+			 console.log(herFamilyStatusDropdownMenu);
+			 herEducationDropdownMenu=$('#herEducationDropdownMenu').val();
+			 console.log(herEducationDropdownMenu);
+			 herResidentialAreadropdownMenu=$('#herResidentialAreadropdownMenu').val();
+			 console.log(herResidentialAreadropdownMenu);
+			 herChildDropdownMenu=$('#herChildDropdownMenu').val();
+			 console.log(herChildDropdownMenu);
+			 herSmoking=$('#herSmoking').val();
+			 console.log(herChildDropdownMenu);
+			 minAge=$('#minAge').val();
+			 console.log(minAge);
+			 maxAge=$('#maxAge').val();
+			 console.log(maxAge);
+			 if (aboutMe=="") {
+		 		bootbox.alert("Please tel us about yourself ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (aboutYou=="") {
+		 		bootbox.alert("Please tel us about the one you are looking for", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (herFamilyStatusDropdownMenu=="") {
+		 		bootbox.alert("Please select her family status ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (herEducationDropdownMenu=="") {
+		 		bootbox.alert("Please select Education", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (herResidentialAreadropdownMenu=="") {
+		 		bootbox.alert("Please select her Residential Area", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (herSmoking=="") {
+		 		bootbox.alert("Please select if you prefer a smoker or a non smoker ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (herChildDropdownMenu=="") {
+		 		bootbox.alert("Please select who many childresnd dose she need to have", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (minAge=="") {
+		 		bootbox.alert("Please select minimum age ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (maxAge=="") {
+		 		bootbox.alert("Please select maximum age", function() {
+				});
+				allGood=false;
+		 	}
+		 	else if (maxAge < minAge) {
+		 		bootbox.alert("maximum age can't be lower then minimum age ", function() {
+				});
+				allGood=false;
+		 	}
+		 	else{
+				console.log("Done checking form 2.");
+			}
+		 	if(allGood==false)
+				return;
+			console.log("Send data to server side");
+			/* add the fields as you wish. */
+			$.ajax({
+		 			url: 'registraterUser.php',
+					type: 'GET',
+					data: {
+						first_name:first_name,
+						last_name:last_name,
+						display_name:display_name,
+						email:email,
+						gender:gender,
+						password:password,
+						familyStatusDropdownMenu:familyStatusDropdownMenu,
+						EducationDropdownMenu:EducationDropdownMenu,
+						ResidentialAreadropdownMenu:ResidentialAreadropdownMenu,
+						ChildDropdownMenu:ChildDropdownMenu,
+						Smoking:Smoking,
+						aboutMe:aboutMe,
+						aboutYou:aboutYou,
+						birthDay:birthDay,
+						diet:diet,
+						height:height,
+						herFamilyStatusDropdownMenu:herFamilyStatusDropdownMenu,
+						herEducationDropdownMenu:herEducationDropdownMenu,
+						herResidentialAreadropdownMenu:herResidentialAreadropdownMenu,
+						herChildDropdownMenu:herChildDropdownMenu,
+						herSmoking:herSmoking,
+						minAge:minAge,
+						maxAge:maxAge,
+					},	
+					
+					success:function (data) {
+					
+					/*
+					if(parseInt(data)==1){
+						alert("OK");
+					}
+					else{
+						alert("ERROR");
+					}
+					*/
+					alert(parseInt(data));
+				 }
+
+
+		 		});
+		 });
+		 function toggleForms(f1,f2,buttonDisable,buttonUnDisable){
+			$("#form"+f1+"").slideUp();
+			$("#form"+f2+"").slideDown();
+			$('#'+buttonDisable+'').prop('disabled', true);
+			$('#'+buttonUnDisable+'').prop('disabled', false); 
+		 }
+		 
+    </script>
+  </body>
+</html>
